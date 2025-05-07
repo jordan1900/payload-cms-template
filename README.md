@@ -40,6 +40,10 @@ Go to Payload Cloud and [clone this template](https://payloadcms.com/new/clone/w
 Use the `create-payload-app` CLI to clone this template directly to your machine:
 
 ```bash
+psql
+CREATE DATABASE "payload-website";
+\c payload-website
+GRANT ALL ON SCHEMA public TO postgres;
 pnpx create-payload-app my-project -t website
 ```
 
