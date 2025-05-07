@@ -13,53 +13,53 @@
  * via the `definition` "supportedTimezones".
  */
 export type SupportedTimezones =
-  | "Pacific/Midway"
-  | "Pacific/Niue"
-  | "Pacific/Honolulu"
-  | "Pacific/Rarotonga"
-  | "America/Anchorage"
-  | "Pacific/Gambier"
-  | "America/Los_Angeles"
-  | "America/Tijuana"
-  | "America/Denver"
-  | "America/Phoenix"
-  | "America/Chicago"
-  | "America/Guatemala"
-  | "America/New_York"
-  | "America/Bogota"
-  | "America/Caracas"
-  | "America/Santiago"
-  | "America/Buenos_Aires"
-  | "America/Sao_Paulo"
-  | "Atlantic/South_Georgia"
-  | "Atlantic/Azores"
-  | "Atlantic/Cape_Verde"
-  | "Europe/London"
-  | "Europe/Berlin"
-  | "Africa/Lagos"
-  | "Europe/Athens"
-  | "Africa/Cairo"
-  | "Europe/Moscow"
-  | "Asia/Riyadh"
-  | "Asia/Dubai"
-  | "Asia/Baku"
-  | "Asia/Karachi"
-  | "Asia/Tashkent"
-  | "Asia/Calcutta"
-  | "Asia/Dhaka"
-  | "Asia/Almaty"
-  | "Asia/Jakarta"
-  | "Asia/Bangkok"
-  | "Asia/Shanghai"
-  | "Asia/Singapore"
-  | "Asia/Tokyo"
-  | "Asia/Seoul"
-  | "Australia/Brisbane"
-  | "Australia/Sydney"
-  | "Pacific/Guam"
-  | "Pacific/Noumea"
-  | "Pacific/Auckland"
-  | "Pacific/Fiji";
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
 
 export interface Config {
   auth: {
@@ -74,12 +74,12 @@ export interface Config {
     users: User;
     redirects: Redirect;
     forms: Form;
-    "form-submissions": FormSubmission;
+    'form-submissions': FormSubmission;
     search: Search;
-    "payload-jobs": PayloadJob;
-    "payload-locked-documents": PayloadLockedDocument;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-jobs': PayloadJob;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
@@ -90,12 +90,12 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
-    "form-submissions": FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
+    'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     search: SearchSelect<false> | SearchSelect<true>;
-    "payload-jobs": PayloadJobsSelect<false> | PayloadJobsSelect<true>;
-    "payload-locked-documents": PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
-    "payload-preferences": PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
-    "payload-migrations": PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: number;
@@ -110,7 +110,7 @@ export interface Config {
   };
   locale: null;
   user: User & {
-    collection: "users";
+    collection: 'users';
   };
   jobs: {
     tasks: {
@@ -149,7 +149,7 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: "none" | "highImpact" | "mediumImpact" | "lowImpact";
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText?: {
       root: {
         type: string;
@@ -158,8 +158,8 @@ export interface Page {
           version: number;
           [k: string]: unknown;
         }[];
-        direction: ("ltr" | "rtl") | null;
-        format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
         indent: number;
         version: number;
       };
@@ -167,27 +167,27 @@ export interface Page {
     } | null;
     links?:
       | {
-        link: {
-          type?: ("reference" | "custom") | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-              relationTo: "pages";
-              value: number | Page;
-            } | null)
-            | ({
-              relationTo: "posts";
-              value: number | Post;
-            } | null);
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ("default" | "outline") | null;
-        };
-        id?: string | null;
-      }[]
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
       | null;
     media?: (number | null) | Media;
   };
@@ -205,7 +205,7 @@ export interface Page {
   slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -223,8 +223,8 @@ export interface Post {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -244,15 +244,15 @@ export interface Post {
   authors?: (number | User)[] | null;
   populatedAuthors?:
     | {
-      id?: string | null;
-      name?: string | null;
-    }[]
+        id?: string | null;
+        name?: string | null;
+      }[]
     | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -269,8 +269,8 @@ export interface Media {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -358,11 +358,11 @@ export interface Category {
   parent?: (number | null) | Category;
   breadcrumbs?:
     | {
-      doc?: (number | null) | Category;
-      url?: string | null;
-      label?: string | null;
-      id?: string | null;
-    }[]
+        doc?: (number | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -398,8 +398,8 @@ export interface CallToActionBlock {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -407,31 +407,31 @@ export interface CallToActionBlock {
   } | null;
   links?:
     | {
-      link: {
-        type?: ("reference" | "custom") | null;
-        newTab?: boolean | null;
-        reference?:
-          | ({
-            relationTo: "pages";
-            value: number | Page;
-          } | null)
-          | ({
-            relationTo: "posts";
-            value: number | Post;
-          } | null);
-        url?: string | null;
-        label: string;
-        /**
-         * Choose how the link should be rendered.
-         */
-        appearance?: ("default" | "outline") | null;
-      };
-      id?: string | null;
-    }[]
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "cta";
+  blockType: 'cta';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -440,48 +440,48 @@ export interface CallToActionBlock {
 export interface ContentBlock {
   columns?:
     | {
-      size?: ("oneThird" | "half" | "twoThirds" | "full") | null;
-      richText?: {
-        root: {
-          type: string;
-          children: {
+        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        richText?: {
+          root: {
             type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
             version: number;
-            [k: string]: unknown;
-          }[];
-          direction: ("ltr" | "rtl") | null;
-          format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-          indent: number;
-          version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        enableLink?: boolean | null;
+        link?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
         };
-        [k: string]: unknown;
-      } | null;
-      enableLink?: boolean | null;
-      link?: {
-        type?: ("reference" | "custom") | null;
-        newTab?: boolean | null;
-        reference?:
-          | ({
-            relationTo: "pages";
-            value: number | Page;
-          } | null)
-          | ({
-            relationTo: "posts";
-            value: number | Post;
-          } | null);
-        url?: string | null;
-        label: string;
-        /**
-         * Choose how the link should be rendered.
-         */
-        appearance?: ("default" | "outline") | null;
-      };
-      id?: string | null;
-    }[]
+        id?: string | null;
+      }[]
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "content";
+  blockType: 'content';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -491,7 +491,7 @@ export interface MediaBlock {
   media: number | Media;
   id?: string | null;
   blockName?: string | null;
-  blockType: "mediaBlock";
+  blockType: 'mediaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -506,26 +506,26 @@ export interface ArchiveBlock {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
     [k: string]: unknown;
   } | null;
-  populateBy?: ("collection" | "selection") | null;
-  relationTo?: "posts" | null;
+  populateBy?: ('collection' | 'selection') | null;
+  relationTo?: 'posts' | null;
   categories?: (number | Category)[] | null;
   limit?: number | null;
   selectedDocs?:
     | {
-      relationTo: "posts";
-      value: number | Post;
-    }[]
+        relationTo: 'posts';
+        value: number | Post;
+      }[]
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "archive";
+  blockType: 'archive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -542,8 +542,8 @@ export interface FormBlock {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -551,7 +551,7 @@ export interface FormBlock {
   } | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "formBlock";
+  blockType: 'formBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -562,118 +562,118 @@ export interface Form {
   title: string;
   fields?:
     | (
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        required?: boolean | null;
-        defaultValue?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "checkbox";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "country";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "email";
-      }
-      | {
-        message?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ("ltr" | "rtl") | null;
-            format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "message";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        defaultValue?: number | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "number";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        defaultValue?: string | null;
-        placeholder?: string | null;
-        options?:
-          | {
-            label: string;
-            value: string;
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            required?: boolean | null;
+            defaultValue?: boolean | null;
             id?: string | null;
-          }[]
-          | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "select";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "state";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        defaultValue?: string | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "text";
-      }
-      | {
-        name: string;
-        label?: string | null;
-        width?: number | null;
-        defaultValue?: string | null;
-        required?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "textarea";
-      }
-    )[]
+            blockName?: string | null;
+            blockType: 'checkbox';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'country';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'email';
+          }
+        | {
+            message?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'message';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            defaultValue?: number | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'number';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            defaultValue?: string | null;
+            placeholder?: string | null;
+            options?:
+              | {
+                  label: string;
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'select';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'state';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            defaultValue?: string | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'text';
+          }
+        | {
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            defaultValue?: string | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'textarea';
+          }
+      )[]
     | null;
   submitButtonLabel?: string | null;
   /**
    * Choose whether to display an on-page message or redirect to a different page after they submit the form.
    */
-  confirmationType?: ("message" | "redirect") | null;
+  confirmationType?: ('message' | 'redirect') | null;
   confirmationMessage?: {
     root: {
       type: string;
@@ -682,8 +682,8 @@ export interface Form {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -697,32 +697,32 @@ export interface Form {
    */
   emails?:
     | {
-      emailTo?: string | null;
-      cc?: string | null;
-      bcc?: string | null;
-      replyTo?: string | null;
-      emailFrom?: string | null;
-      subject: string;
-      /**
-       * Enter the message that should be sent in this email.
-       */
-      message?: {
-        root: {
-          type: string;
-          children: {
+        emailTo?: string | null;
+        cc?: string | null;
+        bcc?: string | null;
+        replyTo?: string | null;
+        emailFrom?: string | null;
+        subject: string;
+        /**
+         * Enter the message that should be sent in this email.
+         */
+        message?: {
+          root: {
             type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
             version: number;
-            [k: string]: unknown;
-          }[];
-          direction: ("ltr" | "rtl") | null;
-          format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-          indent: number;
-          version: number;
-        };
-        [k: string]: unknown;
-      } | null;
-      id?: string | null;
-    }[]
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -738,16 +738,16 @@ export interface Redirect {
    */
   from: string;
   to?: {
-    type?: ("reference" | "custom") | null;
+    type?: ('reference' | 'custom') | null;
     reference?:
       | ({
-        relationTo: "pages";
-        value: number | Page;
-      } | null)
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
       | ({
-        relationTo: "posts";
-        value: number | Post;
-      } | null);
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
     url?: string | null;
   };
   updatedAt: string;
@@ -762,10 +762,10 @@ export interface FormSubmission {
   form: number | Form;
   submissionData?:
     | {
-      field: string;
-      value: string;
-      id?: string | null;
-    }[]
+        field: string;
+        value: string;
+        id?: string | null;
+      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -781,7 +781,7 @@ export interface Search {
   title?: string | null;
   priority?: number | null;
   doc: {
-    relationTo: "posts";
+    relationTo: 'posts';
     value: number | Post;
   };
   slug?: string | null;
@@ -792,10 +792,10 @@ export interface Search {
   };
   categories?:
     | {
-      relationTo?: string | null;
-      id?: string | null;
-      title?: string | null;
-    }[]
+        relationTo?: string | null;
+        id?: string | null;
+        title?: string | null;
+      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -811,8 +811,8 @@ export interface PayloadJob {
    */
   input?:
     | {
-      [k: string]: unknown;
-    }
+        [k: string]: unknown;
+      }
     | unknown[]
     | string
     | number
@@ -820,8 +820,8 @@ export interface PayloadJob {
     | null;
   taskStatus?:
     | {
-      [k: string]: unknown;
-    }
+        [k: string]: unknown;
+      }
     | unknown[]
     | string
     | number
@@ -838,8 +838,8 @@ export interface PayloadJob {
    */
   error?:
     | {
-      [k: string]: unknown;
-    }
+        [k: string]: unknown;
+      }
     | unknown[]
     | string
     | number
@@ -850,42 +850,42 @@ export interface PayloadJob {
    */
   log?:
     | {
-      executedAt: string;
-      completedAt: string;
-      taskSlug: "inline" | "schedulePublish";
-      taskID: string;
-      input?:
-        | {
-          [k: string]: unknown;
-        }
-        | unknown[]
-        | string
-        | number
-        | boolean
-        | null;
-      output?:
-        | {
-          [k: string]: unknown;
-        }
-        | unknown[]
-        | string
-        | number
-        | boolean
-        | null;
-      state: "failed" | "succeeded";
-      error?:
-        | {
-          [k: string]: unknown;
-        }
-        | unknown[]
-        | string
-        | number
-        | boolean
-        | null;
-      id?: string | null;
-    }[]
+        executedAt: string;
+        completedAt: string;
+        taskSlug: 'inline' | 'schedulePublish';
+        taskID: string;
+        input?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        output?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        state: 'failed' | 'succeeded';
+        error?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        id?: string | null;
+      }[]
     | null;
-  taskSlug?: ("inline" | "schedulePublish") | null;
+  taskSlug?: ('inline' | 'schedulePublish') | null;
   queue?: string | null;
   waitUntil?: string | null;
   processing?: boolean | null;
@@ -900,48 +900,48 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-      relationTo: "pages";
-      value: number | Page;
-    } | null)
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
     | ({
-      relationTo: "posts";
-      value: number | Post;
-    } | null)
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
     | ({
-      relationTo: "media";
-      value: number | Media;
-    } | null)
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
     | ({
-      relationTo: "categories";
-      value: number | Category;
-    } | null)
+        relationTo: 'categories';
+        value: number | Category;
+      } | null)
     | ({
-      relationTo: "users";
-      value: number | User;
-    } | null)
+        relationTo: 'users';
+        value: number | User;
+      } | null)
     | ({
-      relationTo: "redirects";
-      value: number | Redirect;
-    } | null)
+        relationTo: 'redirects';
+        value: number | Redirect;
+      } | null)
     | ({
-      relationTo: "forms";
-      value: number | Form;
-    } | null)
+        relationTo: 'forms';
+        value: number | Form;
+      } | null)
     | ({
-      relationTo: "form-submissions";
-      value: number | FormSubmission;
-    } | null)
+        relationTo: 'form-submissions';
+        value: number | FormSubmission;
+      } | null)
     | ({
-      relationTo: "search";
-      value: number | Search;
-    } | null)
+        relationTo: 'search';
+        value: number | Search;
+      } | null)
     | ({
-      relationTo: "payload-jobs";
-      value: number | PayloadJob;
-    } | null);
+        relationTo: 'payload-jobs';
+        value: number | PayloadJob;
+      } | null);
   globalSlug?: string | null;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   updatedAt: string;
@@ -954,14 +954,14 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: number;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   key?: string | null;
   value?:
     | {
-      [k: string]: unknown;
-    }
+        [k: string]: unknown;
+      }
     | unknown[]
     | string
     | number
@@ -990,41 +990,41 @@ export interface PagesSelect<T extends boolean = true> {
   hero?:
     | T
     | {
-      type?: T;
-      richText?: T;
-      links?:
-        | T
-        | {
-          link?:
-            | T
-            | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
+        type?: T;
+        richText?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
             };
-          id?: T;
-        };
-      media?: T;
-    };
+        media?: T;
+      };
   layout?:
     | T
     | {
-      cta?: T | CallToActionBlockSelect<T>;
-      content?: T | ContentBlockSelect<T>;
-      mediaBlock?: T | MediaBlockSelect<T>;
-      archive?: T | ArchiveBlockSelect<T>;
-      formBlock?: T | FormBlockSelect<T>;
-    };
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        archive?: T | ArchiveBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
+      };
   meta?:
     | T
     | {
-      title?: T;
-      image?: T;
-      description?: T;
-    };
+        title?: T;
+        image?: T;
+        description?: T;
+      };
   publishedAt?: T;
   slug?: T;
   slugLock?: T;
@@ -1041,18 +1041,18 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
   links?:
     | T
     | {
-      link?:
-        | T
-        | {
-          type?: T;
-          newTab?: T;
-          reference?: T;
-          url?: T;
-          label?: T;
-          appearance?: T;
-        };
-      id?: T;
-    };
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1064,21 +1064,21 @@ export interface ContentBlockSelect<T extends boolean = true> {
   columns?:
     | T
     | {
-      size?: T;
-      richText?: T;
-      enableLink?: T;
-      link?:
-        | T
-        | {
-          type?: T;
-          newTab?: T;
-          reference?: T;
-          url?: T;
-          label?: T;
-          appearance?: T;
-        };
-      id?: T;
-    };
+        size?: T;
+        richText?: T;
+        enableLink?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1129,18 +1129,18 @@ export interface PostsSelect<T extends boolean = true> {
   meta?:
     | T
     | {
-      title?: T;
-      image?: T;
-      description?: T;
-    };
+        title?: T;
+        image?: T;
+        description?: T;
+      };
   publishedAt?: T;
   authors?: T;
   populatedAuthors?:
     | T
     | {
-      id?: T;
-      name?: T;
-    };
+        id?: T;
+        name?: T;
+      };
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -1168,77 +1168,77 @@ export interface MediaSelect<T extends boolean = true> {
   sizes?:
     | T
     | {
-      thumbnail?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      square?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      small?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      medium?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      large?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      xlarge?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-      og?:
-        | T
-        | {
-          url?: T;
-          width?: T;
-          height?: T;
-          mimeType?: T;
-          filesize?: T;
-          filename?: T;
-        };
-    };
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        square?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        small?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        og?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1252,11 +1252,11 @@ export interface CategoriesSelect<T extends boolean = true> {
   breadcrumbs?:
     | T
     | {
-      doc?: T;
-      url?: T;
-      label?: T;
-      id?: T;
-    };
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1285,10 +1285,10 @@ export interface RedirectsSelect<T extends boolean = true> {
   to?:
     | T
     | {
-      type?: T;
-      reference?: T;
-      url?: T;
-    };
+        type?: T;
+        reference?: T;
+        url?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1301,127 +1301,127 @@ export interface FormsSelect<T extends boolean = true> {
   fields?:
     | T
     | {
-      checkbox?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          required?: T;
-          defaultValue?: T;
-          id?: T;
-          blockName?: T;
-        };
-      country?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      email?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      message?:
-        | T
-        | {
-          message?: T;
-          id?: T;
-          blockName?: T;
-        };
-      number?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          defaultValue?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      select?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          defaultValue?: T;
-          placeholder?: T;
-          options?:
-            | T
-            | {
+        checkbox?:
+          | T
+          | {
+              name?: T;
               label?: T;
-              value?: T;
+              width?: T;
+              required?: T;
+              defaultValue?: T;
               id?: T;
+              blockName?: T;
             };
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      state?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      text?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          defaultValue?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-      textarea?:
-        | T
-        | {
-          name?: T;
-          label?: T;
-          width?: T;
-          defaultValue?: T;
-          required?: T;
-          id?: T;
-          blockName?: T;
-        };
-    };
+        country?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        email?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        message?:
+          | T
+          | {
+              message?: T;
+              id?: T;
+              blockName?: T;
+            };
+        number?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              defaultValue?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        select?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              defaultValue?: T;
+              placeholder?: T;
+              options?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        state?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        text?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              defaultValue?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        textarea?:
+          | T
+          | {
+              name?: T;
+              label?: T;
+              width?: T;
+              defaultValue?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   submitButtonLabel?: T;
   confirmationType?: T;
   confirmationMessage?: T;
   redirect?:
     | T
     | {
-      url?: T;
-    };
+        url?: T;
+      };
   emails?:
     | T
     | {
-      emailTo?: T;
-      cc?: T;
-      bcc?: T;
-      replyTo?: T;
-      emailFrom?: T;
-      subject?: T;
-      message?: T;
-      id?: T;
-    };
+        emailTo?: T;
+        cc?: T;
+        bcc?: T;
+        replyTo?: T;
+        emailFrom?: T;
+        subject?: T;
+        message?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1434,10 +1434,10 @@ export interface FormSubmissionsSelect<T extends boolean = true> {
   submissionData?:
     | T
     | {
-      field?: T;
-      value?: T;
-      id?: T;
-    };
+        field?: T;
+        value?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1453,17 +1453,17 @@ export interface SearchSelect<T extends boolean = true> {
   meta?:
     | T
     | {
-      title?: T;
-      description?: T;
-      image?: T;
-    };
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   categories?:
     | T
     | {
-      relationTo?: T;
-      id?: T;
-      title?: T;
-    };
+        relationTo?: T;
+        id?: T;
+        title?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1481,16 +1481,16 @@ export interface PayloadJobsSelect<T extends boolean = true> {
   log?:
     | T
     | {
-      executedAt?: T;
-      completedAt?: T;
-      taskSlug?: T;
-      taskID?: T;
-      input?: T;
-      output?: T;
-      state?: T;
-      error?: T;
-      id?: T;
-    };
+        executedAt?: T;
+        completedAt?: T;
+        taskSlug?: T;
+        taskID?: T;
+        input?: T;
+        output?: T;
+        state?: T;
+        error?: T;
+        id?: T;
+      };
   taskSlug?: T;
   queue?: T;
   waitUntil?: T;
@@ -1538,23 +1538,23 @@ export interface Header {
   id: number;
   navItems?:
     | {
-      link: {
-        type?: ("reference" | "custom") | null;
-        newTab?: boolean | null;
-        reference?:
-          | ({
-            relationTo: "pages";
-            value: number | Page;
-          } | null)
-          | ({
-            relationTo: "posts";
-            value: number | Post;
-          } | null);
-        url?: string | null;
-        label: string;
-      };
-      id?: string | null;
-    }[]
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
     | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1567,23 +1567,23 @@ export interface Footer {
   id: number;
   navItems?:
     | {
-      link: {
-        type?: ("reference" | "custom") | null;
-        newTab?: boolean | null;
-        reference?:
-          | ({
-            relationTo: "pages";
-            value: number | Page;
-          } | null)
-          | ({
-            relationTo: "posts";
-            value: number | Post;
-          } | null);
-        url?: string | null;
-        label: string;
-      };
-      id?: string | null;
-    }[]
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
     | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1596,17 +1596,17 @@ export interface HeaderSelect<T extends boolean = true> {
   navItems?:
     | T
     | {
-      link?:
-        | T
-        | {
-          type?: T;
-          newTab?: T;
-          reference?: T;
-          url?: T;
-          label?: T;
-        };
-      id?: T;
-    };
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1619,17 +1619,17 @@ export interface FooterSelect<T extends boolean = true> {
   navItems?:
     | T
     | {
-      link?:
-        | T
-        | {
-          type?: T;
-          newTab?: T;
-          reference?: T;
-          url?: T;
-          label?: T;
-        };
-      id?: T;
-    };
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1640,17 +1640,17 @@ export interface FooterSelect<T extends boolean = true> {
  */
 export interface TaskSchedulePublish {
   input: {
-    type?: ("publish" | "unpublish") | null;
+    type?: ('publish' | 'unpublish') | null;
     locale?: string | null;
     doc?:
       | ({
-        relationTo: "pages";
-        value: number | Page;
-      } | null)
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
       | ({
-        relationTo: "posts";
-        value: number | Post;
-      } | null);
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
     global?: string | null;
     user?: (number | null) | User;
   };
@@ -1661,7 +1661,7 @@ export interface TaskSchedulePublish {
  * via the `definition` "BannerBlock".
  */
 export interface BannerBlock {
-  style: "info" | "warning" | "error" | "success";
+  style: 'info' | 'warning' | 'error' | 'success';
   content: {
     root: {
       type: string;
@@ -1670,8 +1670,8 @@ export interface BannerBlock {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -1679,18 +1679,18 @@ export interface BannerBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: "banner";
+  blockType: 'banner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CodeBlock".
  */
 export interface CodeBlock {
-  language?: ("typescript" | "javascript" | "css") | null;
+  language?: ('typescript' | 'javascript' | 'css') | null;
   code: string;
   id?: string | null;
   blockName?: string | null;
-  blockType: "code";
+  blockType: 'code';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1700,6 +1700,7 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }
