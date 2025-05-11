@@ -2,6 +2,7 @@ import type { CollectionConfig } from "payload";
 
 import { slugField } from "@/fields/slug";
 import { hero } from "@/heros/config";
+import { createBreadcrumbsField, createParentField } from "@payloadcms/plugin-nested-docs";
 import { authenticated } from "../../access/authenticated";
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
 import { Archive } from "../../blocks/ArchiveBlock/config";
@@ -10,6 +11,7 @@ import { Content } from "../../blocks/Content/config";
 import { FormBlock } from "../../blocks/Form/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
+import { generatePreviewByID } from "../../utilities/generatePreviewByID";
 import { generatePreviewPath } from "../../utilities/generatePreviewPath";
 import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage";
 
@@ -40,8 +42,8 @@ export const Pages: CollectionConfig<"pages"> = {
     defaultColumns: ["title", "slug", "updatedAt"],
     livePreview: {
       url: ({ data, req }) => {
-        const path = generatePreviewPath({
-          slug: typeof data?.slug === "string" ? data.slug : "",
+        const path = generatePreviewByID({
+          doc: data,
           collection: "pages",
           req,
         });
@@ -50,12 +52,30 @@ export const Pages: CollectionConfig<"pages"> = {
       },
     },
     preview: (data, { req }) =>
-      generatePreviewPath({
-        slug: typeof data?.slug === "string" ? data.slug : "",
+      generatePreviewByID({
+        doc: data,
         collection: "pages",
         req,
       }),
     useAsTitle: "title",
+    // livePreview: {
+    //   url: ({ data, req }) => {
+    //     const path = generatePreviewPath({
+    //       slug: typeof data?.slug === "string" ? data.slug : "",
+    //       collection: "pages",
+    //       req,
+    //     });
+
+    //     return path;
+    //   },
+    // },
+    // preview: (data, { req }) =>
+    //   generatePreviewPath({
+    //     slug: typeof data?.slug === "string" ? data.slug : "",
+    //     collection: "pages",
+    //     req,
+    //   }),
+    // useAsTitle: "title",
   },
   fields: [
     {
@@ -63,6 +83,11 @@ export const Pages: CollectionConfig<"pages"> = {
       type: "text",
       required: true,
     },
+    createBreadcrumbsField("pages", {
+      admin: {
+        disabled: true,
+      },
+    }),
     {
       type: "tabs",
       tabs: [
@@ -120,6 +145,12 @@ export const Pages: CollectionConfig<"pages"> = {
         position: "sidebar",
       },
     },
+    createParentField("pages", {
+      admin: {
+        position: "sidebar",
+        description: "Select a parent page to create a hierarchical structure",
+      },
+    }),
     ...slugField(),
   ],
   hooks: {

@@ -9,7 +9,13 @@
   },
   "markup": {},
   "yaml": {},
-  "excludes": ["**/node_modules", "**/*-lock.json", "**/.next", "src/payload-types.ts"],
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json",
+    "**/.next",
+    "src/payload-types.ts",
+    "src/app/(payload)/admin/importMap.js"
+  ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.95.0.wasm",
     "https://plugins.dprint.dev/json-0.20.0.wasm",

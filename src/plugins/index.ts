@@ -4,6 +4,7 @@ import { searchFields } from "@/search/fieldOverrides";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
+import { GenerateLabel } from "@payloadcms/plugin-nested-docs/types";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
 import { searchPlugin } from "@payloadcms/plugin-search";
 import { seoPlugin } from "@payloadcms/plugin-seo";
@@ -22,6 +23,10 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   const url = getServerSideURL();
 
   return doc?.slug ? `${url}/${doc.slug}` : url;
+};
+
+const generateBreadcrumbLabel: GenerateLabel = (_, doc) => {
+  return (doc.title as string) || (doc.id as string);
 };
 
 export const plugins: Plugin[] = [
@@ -48,8 +53,9 @@ export const plugins: Plugin[] = [
     },
   }),
   nestedDocsPlugin({
-    collections: ["categories"],
+    collections: ["pages"],
     generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+    generateLabel: generateBreadcrumbLabel,
   }),
   seoPlugin({
     generateTitle,

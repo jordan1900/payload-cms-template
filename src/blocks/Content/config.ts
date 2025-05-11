@@ -1,6 +1,16 @@
 import type { Block, Field } from "payload";
 
-import { FixedToolbarFeature, HeadingFeature, InlineToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import {
+  AlignFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  HorizontalRuleFeature,
+  IndentFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+  OrderedListFeature,
+  UnorderedListFeature,
+} from "@payloadcms/richtext-lexical";
 
 import { link } from "@/fields/link";
 
@@ -36,6 +46,11 @@ const columnFields: Field[] = [
         return [
           ...rootFeatures,
           HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
+          UnorderedListFeature(),
+          OrderedListFeature(),
+          AlignFeature(),
+          IndentFeature(),
+          HorizontalRuleFeature(),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ];
