@@ -40,20 +40,22 @@ export const fetchPage = async (incomingSlugSegments: string[]): Promise<null | 
 
   const pagePath = `/${slugSegments.join("/")}`;
 
-  const page = data.docs.find(({ breadcrumbs }: Page) => {
-    if (!breadcrumbs) {
-      console.error("No breadcrumbs found for page", data.docs);
+  const page = data.docs.find((doc: Page) => {
+    if (!doc.breadcrumbs || !Array.isArray(doc.breadcrumbs) || doc.breadcrumbs.length === 0) {
+      console.error("No breadcrumbs found for page", doc);
       return false;
     }
-    const { url } = breadcrumbs[breadcrumbs.length - 1];
-    return url === pagePath;
+
+    const lastBreadcrumb = doc.breadcrumbs[doc.breadcrumbs.length - 1];
+    if (!lastBreadcrumb || typeof lastBreadcrumb.url !== "string") {
+      console.error("Invalid breadcrumb structure", doc.breadcrumbs);
+      return false;
+    }
+
+    return lastBreadcrumb.url === pagePath;
   });
 
-  if (page) {
-    return page;
-  }
-
-  return null;
+  return page || null;
 };
 
 // Used for querying a page by its slug (single segment, not full path)

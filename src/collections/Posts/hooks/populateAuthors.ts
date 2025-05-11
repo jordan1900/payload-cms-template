@@ -32,6 +32,7 @@ export const populateAuthors: CollectionAfterReadHook = async ({ doc, req, req: 
       }
     }
   }
+  void req;
 
   return doc;
 };

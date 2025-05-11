@@ -68,21 +68,37 @@ export async function GET(
   // Determine the redirect path based on the document type and structure
   let redirectPath = "/";
 
-  if (collection === "pages") {
-    // For pages collection, use the breadcrumbs if available
-    if (doc.breadcrumbs && Array.isArray(doc.breadcrumbs) && doc.breadcrumbs.length > 0) {
-      redirectPath = doc.breadcrumbs[doc.breadcrumbs.length - 1].url;
-    } else if (doc.slug) {
-      // Fallback to slug if breadcrumbs aren't available
-      redirectPath = `/${doc.slug}`;
-    }
-  } else {
-    // For other collections, construct path based on collection and slug
-    if (doc.slug) {
-      redirectPath = `/${collection}/${doc.slug}`;
-    } else {
+  // Handle different collection types with type safety
+  switch (collection) {
+    case "pages":
+      // For pages collection, use the breadcrumbs if available
+      if (
+        "breadcrumbs" in doc
+        && Array.isArray(doc.breadcrumbs)
+        && doc.breadcrumbs.length > 0
+      ) {
+        const lastBreadcrumb = doc.breadcrumbs[doc.breadcrumbs.length - 1];
+        if (lastBreadcrumb && typeof lastBreadcrumb.url === "string") {
+          redirectPath = lastBreadcrumb.url;
+        }
+      } else if ("slug" in doc && typeof doc.slug === "string") {
+        // Fallback to slug if breadcrumbs aren't available
+        redirectPath = `/${doc.slug}`;
+      }
+      break;
+
+    case "posts":
+      // For posts collection, use the slug if available
+      if ("slug" in doc && typeof doc.slug === "string") {
+        redirectPath = `/posts/${doc.slug}`;
+      } else {
+        redirectPath = `/posts/${id}`;
+      }
+      break;
+
+    default:
+      // For other collections, use the collection and id
       redirectPath = `/${collection}/${id}`;
-    }
   }
 
   // Redirect to the page

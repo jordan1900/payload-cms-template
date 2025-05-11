@@ -53,7 +53,7 @@ export const plugins: Plugin[] = [
     },
   }),
   nestedDocsPlugin({
-    collections: ["pages"],
+    collections: ["pages", "categories"],
     generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     generateLabel: generateBreadcrumbLabel,
   }),

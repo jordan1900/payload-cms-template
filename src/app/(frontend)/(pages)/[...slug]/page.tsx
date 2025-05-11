@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PayloadRedirects } from "@/components/PayloadRedirects";
 import { homeStatic } from "@/endpoints/seed/home-static";
+import type { Page } from "@/payload-types";
 import { fetchPage, fetchPages, queryPageBySlug } from "@data/index";
 import { draftMode } from "next/headers";
 import React from "react";
@@ -31,12 +32,11 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { slug = ["home"] } = await paramsPromise;
   const url = "/" + (Array.isArray(slug) ? slug.join("/") : slug);
 
-  const page = await fetchPage(Array.isArray(slug) ? slug : [slug]);
+  let pageData: Page | null = await fetchPage(Array.isArray(slug) ? slug : [slug]);
 
   // Remove this code once your website is seeded
-  let pageData = page;
   if (!pageData && slug[0] === "home") {
-    pageData = homeStatic;
+    pageData = homeStatic as Page;
   }
 
   if (!pageData) {
@@ -60,9 +60,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = "home" } = await paramsPromise;
+  const { slug = ["home"] } = await paramsPromise;
+  // Extract the last segment of the slug array to use as the page slug
+  const pageSlug = Array.isArray(slug) ? slug[slug.length - 1] || "home" : slug;
+
   const page = await queryPageBySlug({
-    slug,
+    slug: pageSlug,
   });
 
   return generateMeta({ doc: page });
