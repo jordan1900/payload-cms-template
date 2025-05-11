@@ -7,6 +7,9 @@ node_modules
 .vercel
 .yarn
 
+# Local setup files
+.installed
+
 # Payload default media upload directory
 public/media/
 
