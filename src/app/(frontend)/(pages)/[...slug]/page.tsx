@@ -17,7 +17,9 @@ export async function generateStaticParams() {
   const pages = await fetchPages();
 
   return pages.map(({ breadcrumbs }) => ({
-    slug: breadcrumbs?.[breadcrumbs.length - 1]?.url?.replace(/^\/|\/$/g, "").split("/"),
+    slug: breadcrumbs?.[breadcrumbs.length - 1]?.url
+      ?.replace(/^\/|\/$/g, "")
+      .split("/"),
   }));
 }
 
@@ -32,7 +34,9 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { slug = ["home"] } = await paramsPromise;
   const url = "/" + (Array.isArray(slug) ? slug.join("/") : slug);
 
-  let pageData: Page | null = await fetchPage(Array.isArray(slug) ? slug : [slug]);
+  let pageData: Page | null = await fetchPage(
+    Array.isArray(slug) ? slug : [slug],
+  );
 
   // Remove this code once your website is seeded
   if (!pageData && slug[0] === "home") {
@@ -59,7 +63,9 @@ export default async function Page({ params: paramsPromise }: Args) {
   );
 }
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+export async function generateMetadata({
+  params: paramsPromise,
+}: Args): Promise<Metadata> {
   const { slug = ["home"] } = await paramsPromise;
   // Extract the last segment of the slug array to use as the page slug
   const pageSlug = Array.isArray(slug) ? slug[slug.length - 1] || "home" : slug;

@@ -37,6 +37,9 @@
       "@data/*": [
         "./src/app/_data/*"
       ],
+      "@components/*": [
+        "./src/components/*"
+      ],
       "react": [
         "./node_modules/@types/react"
       ],
