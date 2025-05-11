@@ -1,6 +1,7 @@
 # Justfile for managing common tasks. Write `just <task>` to execute a command.
 
 start:
+  rm -rf .next
   yarn dev
 
 install:
